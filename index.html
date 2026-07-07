@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Webcam Pixel Color Picker — Design Spec Sheet</title>
+    <link rel="stylesheet" href="/index.css" />
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+  </head>
+
+  <body>
+    <div class="page">
+      <h1>Webcam Pixel Color Picker — Annotated Design Spec (Static)</h1>
+
+      <!-- MOCKUP -->
+      <div class="mockup">
+        <div class="camera-container">
+    <video id="camera" autoplay playsinline></video>
+</div>
+       
+
+        <!-- spacing chips -->
+
+        <!-- floating card -->
+        <div class="card">
+          <div class="card-row">
+            <div id="swatch" class="swatch"></div>
+
+            <div id="hex" class="hex">#4DA3FF</div>
+
+            <div id="rgb" class="rgb">RGB(77, 163, 255)</div>
+          </div>
+          <div class="hint">
+            Tap anywhere on camera feed to sample pixel color
+          </div>
+        </div>
+      </div>
+      <canvas id="canvas"></canvas>
+      <!-- PANELS -->
+      <div class="grid">
+  
+        
+
+      <script src="/index.js"></script>
+    </div>
+  </body>
+</html>
