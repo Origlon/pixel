@@ -39,14 +39,17 @@ navigator.mediaDevices
     video: true,
   })
 //   videog gargah js bichne => stream , bas dotor n canvasiin undur urgun videonii undur urguntei tentsuu baih ystoi 
-  .then((stream) => {
-      video.srcObject = stream;
-      
-      video.onloadedmetadata = () => {
-          canvas.width = video.videoWidth;
-          canvas.height = video.videoHeight;
-        };
-    })
+ .then((stream) => {
+  video.srcObject = stream;
+
+  video.onloadedmetadata = () => {
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+
+    console.log("Video size:", video.videoWidth, video.videoHeight);
+    console.log("Canvas size:", canvas.width, canvas.height);
+  };
+})
     // ajilahgui bol error gdg element bas davhar bichne
     .catch((error) => {
       console.log("Camera error:", error);
@@ -58,12 +61,19 @@ video.addEventListener("click", function (event) {
     // delgetsen deer darsan undur urgunii bairlaliig bodoj oloh 
   const x = event.offsetX * (canvas.width / video.clientWidth);
   const y = event.offsetY * (canvas.height / video.clientHeight);
-
+console.log({
+  clickX: event.offsetX,
+  clickY: event.offsetY,
+  canvasX: x,
+  canvasY: y
+});
   console.log("Canvas position:", x, y);
 // Video → Canvas руу зураг авах
 //         ↓
 // damjuulsan dursnees canvas ruu zurag avah , 
+  if (video.readyState === 4) {
   ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+}
 // Canvas-аас 1 pixel унших
 //         ↓
   const pixel = ctx.getImageData(x, y, 1, 1);
@@ -95,3 +105,4 @@ function rgbToHex(r, g, b) {
     b.toString(16).padStart(2, "0")
   ).toUpperCase();
 }
+
